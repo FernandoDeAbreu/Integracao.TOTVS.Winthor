@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Integracao.TOTVS.Winthor.Domain\Integracao.TOTVS.Winthor.Domain.csproj" />
+    <ProjectReference Include="..\Integracao.TOTVS.Winthor.Infra\Integracao.TOTVS.Winthor.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
