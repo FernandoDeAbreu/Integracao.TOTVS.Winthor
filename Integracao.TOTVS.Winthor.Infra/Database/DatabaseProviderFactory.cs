@@ -12,19 +12,19 @@ public interface IDatabaseProviderFactory
 
 public sealed class DatabaseProviderFactory : IDatabaseProviderFactory
 {
-    private readonly HisConfiguracao configuracao;
+    private readonly DbConfiguration configuracao;
 
-    public DatabaseProviderFactory(HisConfiguracao configuracao)
+    public DatabaseProviderFactory(DbConfiguration configuracao)
     {
         this.configuracao = configuracao;
     }
 
     public IDbConnection CriarDatabaseConnection()
     {
-        if (configuracao.Provider == HisConfiguracao.ProviderEnum.Oracle)
+        if (configuracao.Provider == DbConfiguration.ProviderEnum.Oracle)
             return new OracleConnection(configuracao.ConnectionString);
 
-        if (configuracao.Provider == HisConfiguracao.ProviderEnum.SqlServer)
+        if (configuracao.Provider == DbConfiguration.ProviderEnum.SqlServer)
             return new SqlConnection(configuracao.ConnectionString);
 
         throw new NotImplementedException($"Provider({configuracao.Provider}) não implementado.");

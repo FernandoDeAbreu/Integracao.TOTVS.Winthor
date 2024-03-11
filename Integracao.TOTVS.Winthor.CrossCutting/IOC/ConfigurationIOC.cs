@@ -12,11 +12,17 @@ public class ConfigurationIOC
 {
     public static void Load(ContainerBuilder builder)
     {
-
-        builder.RegisterType<HisConfiguracao>().As<HisConfiguracao>();
+        builder.RegisterType<DbConfiguration>().As<DbConfiguration>();
         builder.RegisterType<DatabaseProviderFactory>().As<IDatabaseProviderFactory>();
 
         builder.RegisterType<VendasRepository>().As<IVendasRepository>();
         builder.RegisterType<VendasService>().As<IVendasServices>();
+
+        builder.RegisterType<ContasPagarRepository>().As<IContasPagarRepository>();
+        builder.RegisterType<ContasPagarServices>().As<IContasPagarServices>();
+        
+        builder.RegisterType<FornecedorRepository>().As<IFornecedorRepository>();
+
+
     }
 }

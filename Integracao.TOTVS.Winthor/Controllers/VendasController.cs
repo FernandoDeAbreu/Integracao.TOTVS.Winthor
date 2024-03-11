@@ -9,10 +9,29 @@ namespace Integracao.TOTVS.Winthor.Controllers
     public class VendasController : ControllerBase
     {
         private readonly IVendasServices _vendasService;
+        private readonly IContasPagarServices _contasPagarServices;
 
-        public VendasController(IVendasServices vendasService)
+        public VendasController(IVendasServices vendasService, IContasPagarServices contasPagarServices)
         {
             _vendasService = vendasService;
+            _contasPagarServices = contasPagarServices;
+        }
+
+        [HttpPost("editar-fornecedor-frete")]
+        public async Task<ActionResult<ContasPagar>> EditarFornecedorFrete(int recNum, int codFornec)
+        {
+            try
+            {
+                var response = _contasPagarServices.EditarFornecedorFrete(recNum, codFornec);
+                if (response.Result == null)
+                    return NotFound("Fornecedor ou contas a pagar não encontrados");
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("vendas-por-vendedor")]
@@ -20,7 +39,7 @@ namespace Integracao.TOTVS.Winthor.Controllers
         {
             try
             {
-                var response = _vendasService.VendasPorVendendorAsync(data);
+                var response = await _vendasService.VendasPorVendendorAsync(data);
                 return Ok(response);
             }
             catch (Exception ex)
