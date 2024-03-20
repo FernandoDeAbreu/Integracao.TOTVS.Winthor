@@ -20,9 +20,10 @@ public class ConfigurationIOC
 
         builder.RegisterType<ContasPagarRepository>().As<IContasPagarRepository>();
         builder.RegisterType<ContasPagarServices>().As<IContasPagarServices>();
-        
+
         builder.RegisterType<FornecedorRepository>().As<IFornecedorRepository>();
 
-
+        builder.RegisterType<EstoqueRepository>().As<IEstoqueRepository>();
+        builder.RegisterType<EstoqueServices>().As<IEstoqueServices>();
     }
 }

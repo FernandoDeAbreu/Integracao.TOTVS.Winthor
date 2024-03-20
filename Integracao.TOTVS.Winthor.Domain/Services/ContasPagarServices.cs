@@ -29,7 +29,7 @@ namespace Integracao.TOTVS.Winthor.Domain.Services
                 return null;
 
             await _contasPagarRepository.EditarFornecedorFrete(CodFornec, recNum);
-           
+
             return new ContasPagar { };
         }
     }

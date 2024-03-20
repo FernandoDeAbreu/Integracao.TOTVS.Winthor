@@ -30,7 +30,7 @@ public class VendasRepository : IVendasRepository
                                    AND(PCPEDC.DATA <= SYSDATE)
                                    AND(PCPEDC.DTCANCEL IS NULL)
                                    AND(PCPEDC.CONDVENDA NOT IN(4, 8, 10, 13, 20, 5))
-                                   AND(LTRIM(RTRIM(PCPEDC.CODFILIAL)) = 1)
+                                   AND(LTRIM(RTRIM(PCPEDC.CODFILIAL)) = 4)
                                  GROUP BY PCPEDC.CODUSUR, PCUSUARI.NOME
                                  ORDER BY VALOR DESC";
 
