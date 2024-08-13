@@ -23,10 +23,10 @@ public sealed class DatabaseProviderFactory : IDatabaseProviderFactory
     {
         configuracao.ConnectionString = Environment.GetEnvironmentVariable("OracleConnectionString", EnvironmentVariableTarget.Machine) ?? string.Empty ;
 
-        if (configuracao.Provider == DbConfiguration.ProviderEnum.Oracle)
+        if (configuracao.Provider == DbConfiguration.Provider.Oracle)
             return new OracleConnection(configuracao.ConnectionString);
 
-        if (configuracao.Provider == DbConfiguration.ProviderEnum.SqlServer)
+        if (configuracao.Provider == DbConfiguration.Provider.SqlServer)
             return new SqlConnection(configuracao.ConnectionString);
 
         throw new NotImplementedException($"Provider({configuracao.Provider}) não implementado.");

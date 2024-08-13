@@ -4,9 +4,9 @@ public class DbConfiguration
 {
     public string key { get; set; }
     public string ConnectionString { get; set; } 
-    public ProviderEnum Provider { get; set; }
+    public Provider Provide { get; set; }
 
-    public enum ProviderEnum
+    public enum Provider
     {
         Oracle,
         SqlServer
