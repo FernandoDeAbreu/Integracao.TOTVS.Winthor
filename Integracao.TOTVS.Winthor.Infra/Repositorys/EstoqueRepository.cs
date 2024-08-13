@@ -16,15 +16,13 @@ namespace Integracao.TOTVS.Winthor.Infra.Repositorys
 
         public async Task<IEnumerable<PcEst>> BuscarEstoqueAsync(string codprod)
         {
-            using (var connection = _databaseProviderFactory.CriarDatabaseConnection())
-            {
-                connection.Open();
+            using var connection = _databaseProviderFactory.CriarDatabaseConnection();
+            connection.Open();
 
-                var parameters = new { codprod };
-                var query = "SELECT * FROM PCEST WHERE CODFILIAL = :codprod";
+            var parameters = new { codprod };
+            var query = "SELECT * FROM PCEST WHERE CODFILIAL = :codprod";
 
-                return await connection.QueryAsync<PcEst>(query, parameters);
-            }
+            return await connection.QueryAsync<PcEst>(query, parameters);
         }
     }
 }

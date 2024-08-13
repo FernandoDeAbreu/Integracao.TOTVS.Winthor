@@ -21,6 +21,8 @@ public sealed class DatabaseProviderFactory : IDatabaseProviderFactory
 
     public IDbConnection CriarDatabaseConnection()
     {
+        configuracao.ConnectionString = Environment.GetEnvironmentVariable("OracleConnectionString", EnvironmentVariableTarget.Machine) ?? string.Empty ;
+
         if (configuracao.Provider == DbConfiguration.ProviderEnum.Oracle)
             return new OracleConnection(configuracao.ConnectionString);
 

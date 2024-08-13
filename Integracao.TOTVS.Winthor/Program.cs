@@ -1,8 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Integracao.TOTVS.Winthor.CrossCutting.IOC;
-using Integracao.TOTVS.Winthor.Domain.Core;
-using Integracao.TOTVS.Winthor.Infra.Database;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +29,6 @@ builder.Services.AddCors(options =>
         .AllowAnyMethod();
     });
 });
-
 
 var app = builder.Build();
 

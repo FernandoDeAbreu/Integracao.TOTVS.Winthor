@@ -3,7 +3,7 @@
 public class DbConfiguration
 {
     public string key { get; set; }
-    public string ConnectionString { get; set; } = "User Id=TENDTUDO;Password=TE26TU1122DO;Data Source=(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 186.193.186.249)(PORT = 3380)) ) (CONNECT_DATA = (SID = WINT) ) )";
+    public string ConnectionString { get; set; } 
     public ProviderEnum Provider { get; set; }
 
     public enum ProviderEnum
