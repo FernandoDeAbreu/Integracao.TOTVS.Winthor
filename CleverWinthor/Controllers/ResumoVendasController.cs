@@ -18,7 +18,7 @@ public class ResumoVendasController : CleverControllerBase
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult> ObterVendasPorDia()
+    public async Task<ActionResult> ObterVendasPorEvolucaoAsync()
     {
         try
         {
@@ -33,11 +33,26 @@ public class ResumoVendasController : CleverControllerBase
 
     [HttpGet("resumo-vendas")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult> ObterResumoVendasPorDia()
+    public async Task<ActionResult> ObterResumoVendasAsync()
     {
         try
         {
             var data = await _resumoVendasService.ObterResumoVendasAsync();
+            return Ok(data);
+        }
+        catch (Exception ex)
+        {
+            return CustomError(ex);
+        }
+    }
+
+    [HttpGet("resumo-vendas-cobranca")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult> ObterResumoVendasPorCobrancaAsync(string dateTimeIni, string dateTimeFim)
+    {
+        try
+        {
+            var data = await _resumoVendasService.ObterVendasPorTipoPessoaAsync(dateTimeIni, dateTimeFim);
             return Ok(data);
         }
         catch (Exception ex)

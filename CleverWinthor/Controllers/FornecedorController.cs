@@ -35,7 +35,6 @@ public class FornecedorController : CleverControllerBase
             return CustomError(ex);
         }
     }
-    
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]

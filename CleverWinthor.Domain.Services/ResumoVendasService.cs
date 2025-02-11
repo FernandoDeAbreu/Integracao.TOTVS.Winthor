@@ -78,7 +78,11 @@ public class ResumoVendasService : IResumoVendasService
             var fatMesAnterior = resumoVendasList.FirstOrDefault(c => c.Ano == item.Ano - 1 && c.Mes == item.Mes)?.FatMensal ?? 0;
             var fatMesAtual = item.FatMensal;
             item.VariacaoMensal = fatMesAnterior == 0 ? 0 : ((fatMesAtual - fatMesAnterior) / fatMesAnterior) * 100;
-
         }
+    }
+
+    public Task<IEnumerable<Venda>> ObterVendasPorTipoPessoaAsync(string dateTimeIni, string dateTimeFim)
+    {
+        return _resumoVendasRepository.ObterVendasPorTipoPessoaAsync(dateTimeIni, dateTimeFim);
     }
 }
