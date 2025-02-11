@@ -17,6 +17,7 @@ public class FornecedorController : CleverControllerBase
         _fornecedorService = fornecedorService;
     }
 
+
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult> Get(int id)
