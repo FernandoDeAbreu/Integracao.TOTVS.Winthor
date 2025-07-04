@@ -1,5 +1,6 @@
 ﻿using Integracao.TOTVS.Winthor.Api.Controllers.Common;
 using Integracao.TOTVS.Winthor.Domain.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Integracao.TOTVS.Winthor.Api.Controllers;
@@ -18,6 +19,7 @@ public class ProdutoController : CleverControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult> Get(int id)
     {
